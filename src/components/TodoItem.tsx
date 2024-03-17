@@ -4,9 +4,9 @@ function TodoItem() {
     <div className="todoBlock-item">
       TodoItem
       <div className="todoBlock-itemBtns">
-        <input type="checkbox" className="itemBtns-checkbox" id="toggle"/>
+        <input type="checkbox" className="todoBlock-itemBtns--checkbox" id="toggle"/>
         <label htmlFor="toggle"/>
-        <button>x</button>
+        <button className="todoBlock-itemBtns--removeBtn">x</button>
       </div>
     </div>
   )

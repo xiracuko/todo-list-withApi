@@ -7,9 +7,15 @@ function Todo() {
       <div className="todoBlock">
         <form>
           <input type="text" />
-          <button>+ add</button>
+          <button className="todoBlock-addBtn">+ add</button>
         </form>
-        <TodoItem />
+        <div className="todoBlock-forItems">
+          <TodoItem />
+          <TodoItem />
+          <TodoItem />
+          <TodoItem />
+          <TodoItem />
+        </div>
       </div>
     </div>
   )

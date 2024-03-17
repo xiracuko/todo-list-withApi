@@ -1,0 +1,162 @@
+.todoBlock {
+  width: 750px;
+  height: 500px;
+
+  background: rgb(28 28 28);
+  border-radius: 5px 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 55px;
+
+  form {
+    width: 600px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  input {
+    outline: none;
+
+    width: 85%;
+    padding: 8px 10px;
+
+    font-size: 16px;
+    background: #2a2a2a;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+  }
+
+  &-addBtn {
+    background: #162956;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    width: 13%;
+    height: 100%;
+
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &-forItems {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 65%;
+    max-height: 210px;
+
+    padding-right: 10px;
+    margin-bottom: 55px;
+    overflow-y: auto;
+  }
+
+  &-item {
+    padding: 10px;
+    background: #2a2a2a;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-itemBtns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &-itemBtns--removeBtn {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    background: #561616;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+}
+
+// hover
+.todoBlock-addBtn:hover,
+.todoBlock-itemBtns--removeBtn:hover {
+  transition: all 0.3s ease-in-out;
+}
+
+.todoBlock-addBtn:hover {
+  background-color: darken($color: #162956, $amount: 3%);
+}
+
+.todoBlock-itemBtns--removeBtn:hover {
+  background-color: darken($color: #561616, $amount: 3%);
+}
+
+.todoBlock-itemBtns--checkbox:not(:disabled):not(:checked)
+  + label:hover::before {
+  width: 23px;
+  height: 23px;
+
+  margin: 0;
+
+  background: #676767;
+}
+
+.todoBlock-itemBtns--checkbox:checked:hover + label::before {
+  background: #103f1e;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+  background-size: 40% 60%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+// checkbox
+.todoBlock-itemBtns--checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+
+  width: 23px !important;
+  height: 23px;
+}
+
+label {
+  cursor: pointer;
+  width: 23px;
+  height: 23px;
+
+  background: #858585;
+  border-radius: 5px;
+}
+
+.todoBlock-itemBtns--checkbox + label::before {
+  content: "";
+
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+
+  margin: -1px 0px 0px -1px;
+  border-radius: 5px;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 40% 60%;
+}
+
+.todoBlock-itemBtns--checkbox:checked + label::before {
+  background-color: #165629;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
