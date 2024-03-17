@@ -141,6 +141,20 @@
     border-radius: 5px;
     padding: 5px 10px;
   }
+
+  &-empty {
+    text-align: center;
+    margin-top: 65px;
+
+    h5 {
+      font-size: 30px;
+    }
+
+    p {
+      color: lighten($color: #162956, $amount: 3%);
+      font-weight: 900;
+    }
+  }
 }
 
 input:focus {
