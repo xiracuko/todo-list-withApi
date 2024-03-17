@@ -1,6 +1,7 @@
 .todoBlock {
-  width: 750px;
-  height: 500px;
+  position: relative;
+  width: 1050px;
+  height: 600px;
 
   background: rgb(28 28 28);
   border-radius: 5px 50px;
@@ -9,10 +10,43 @@
   flex-direction: column;
   align-items: center;
   justify-content: end;
-  gap: 55px;
+  gap: 105px;
+
+  h2 {
+    position: absolute;
+    top: 55px;
+
+    font-size: 55px;
+
+    p {
+      position: absolute;
+      top: 0px;
+      right: -17px;
+
+      color: #162956;
+    }
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 110px;
+
+    width: 85%;
+    height: 405px;
+  }
+
+  .formBlock {
+    display: flex;
+    gap: 10px;
+
+    margin: 0 auto;
+  }
 
   form {
     width: 600px;
+    height: 35px;
 
     display: flex;
     align-items: center;
@@ -33,7 +67,8 @@
     border-radius: 5px;
   }
 
-  &-addBtn {
+  &-addBtn,
+  &-addBtnData {
     background: #162956;
     color: white;
 
@@ -47,12 +82,30 @@
     transition: all 0.3s ease-in-out;
   }
 
-  &-forItems {
+  &-forAllItems {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    h4 {
+      position: absolute;
+      top: -35px;
+
+      font-size: 20px;
+    }
+
+    .another {
+      right: 12.2em;
+    }
+  }
+
+  &-forItems,
+  &-forOthersItems {
     display: flex;
     flex-direction: column;
     gap: 10px;
 
-    width: 65%;
+    width: 48%;
     max-height: 210px;
 
     padding-right: 10px;
@@ -90,13 +143,19 @@
   }
 }
 
+input:focus {
+  border: 1px solid #162956;
+}
+
 // hover
 .todoBlock-addBtn:hover,
+.todoBlock-addBtnData:hover,
 .todoBlock-itemBtns--removeBtn:hover {
   transition: all 0.3s ease-in-out;
 }
 
-.todoBlock-addBtn:hover {
+.todoBlock-addBtn:hover,
+.todoBlock-addBtnData:hover {
   background-color: darken($color: #162956, $amount: 3%);
 }
 
