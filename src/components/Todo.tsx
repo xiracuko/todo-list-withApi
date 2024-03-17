@@ -1,3 +1,4 @@
+import TodoEmpty from "./TodoEmpty"
 import TodoItem from "./TodoItem"
 
 function Todo() {
@@ -25,11 +26,7 @@ function Todo() {
             </div>
             <h4 className="another">Another user's todos:</h4>
             <div className="todoBlock-forOthersItems">
-              <TodoItem />
-              <TodoItem />
-              <TodoItem />
-              <TodoItem />
-              <TodoItem />
+              <TodoEmpty />
             </div>
           </div>
         </div>
