@@ -3,9 +3,14 @@ import TodoItem from "./TodoItem"
 function Todo() {
 
   return (
-    <div>
-      Todo
-      <TodoItem />
+    <div className="container">
+      <div className="todoBlock">
+        <form>
+          <input type="text" />
+          <button>+ add</button>
+        </form>
+        <TodoItem />
+      </div>
     </div>
   )
 }
