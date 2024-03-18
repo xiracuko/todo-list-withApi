@@ -6,3 +6,6 @@ export const store = configureStore({
     setTodo
   }
 })
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatchType = typeof store.dispatch;

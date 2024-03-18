@@ -1,7 +1,10 @@
+import { useAppDispatch, useAppSelector } from "../hooks"
 import TodoEmpty from "./TodoEmpty"
 import TodoItem from "./TodoItem"
 
 function Todo() {
+  const dispatch = useAppDispatch();
+  const {todos} = useAppSelector((state) => state.setTodo);
 
   return (
     <div className="container">
