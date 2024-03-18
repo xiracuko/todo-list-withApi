@@ -1,8 +1,8 @@
-function TodoItem() {
+function TodoItem(props: any) {
 
   return (
     <div className="todoBlock-item">
-      <p>TodoItem</p>
+      <p>{props.title}</p>
       <div className="todoBlock-itemBtns">
         <input type="checkbox" className="todoBlock-itemBtns--checkbox" id="toggle"/>
         <label htmlFor="toggle"/>

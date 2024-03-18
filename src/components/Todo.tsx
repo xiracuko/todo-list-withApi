@@ -5,7 +5,6 @@ import TodoItem from "./TodoItem"
 import { addTodo } from "../redux/setTodos/slice";
 
 function Todo() {
-
   const dispatch = useAppDispatch();
   const { todos } = useAppSelector((state) => state.setTodo);
   const [value, setValue] = React.useState("");
@@ -30,6 +29,13 @@ function Todo() {
           <div className="todoBlock-forAllItems">
             <h4>Your todos:</h4>
             <div className="todoBlock-forItems">
+              {
+                todos.length ? 
+                todos.map((todo, id) => (
+                  <TodoItem key={id} title={todo.title} />
+                )) :
+                <TodoEmpty />
+              }
             </div>
             <h4 className="another">Another user's todos:</h4>
             <div className="todoBlock-forOthersItems">
