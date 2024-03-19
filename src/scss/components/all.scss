@@ -110,6 +110,8 @@
 
     padding-right: 10px;
     margin-bottom: 55px;
+
+    position: relative;
     overflow-y: auto;
   }
 
@@ -121,6 +123,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    p {
+      max-width: 305px;
+      padding-bottom: 5px;
+
+      overflow: auto;
+    }
   }
 
   &-itemBtns {
