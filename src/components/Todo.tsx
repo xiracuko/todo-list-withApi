@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../hooks"
 import TodoEmpty from "./TodoEmpty"
 import TodoItem from "./TodoItem"
 import { addTodo } from "../redux/setTodos/slice";
-import { useGetTodosQuery, useRemoveTodoMutation } from "../redux/getTodos/api";
+import { useLazyGetTodosQuery, useRemoveTodoMutation } from "../redux/getTodos/api";
 
 function Todo() {
   const dispatch = useAppDispatch();
@@ -15,8 +15,12 @@ function Todo() {
     dispatch(addTodo({ title: value }))
   }
 
-  const {data, isSuccess} = useGetTodosQuery("value");
-  const {} = useRemoveTodoMutation();
+  const [trigger, {data, isSuccess}] = useLazyGetTodosQuery();
+  const { } = useRemoveTodoMutation();
+
+  const onClickData = () => {
+    trigger(value);
+  }
 
   return (
     <div className="container">
@@ -28,27 +32,27 @@ function Todo() {
               <input type="text" value={value} onChange={(event) => setValue(event.target.value)} />
               <button className="todoBlock-addBtn">+ add</button>
             </form>
-            <button className="todoBlock-addBtnData">getData</button>
+            <button className="todoBlock-addBtnData" onClick={onClickData}>getData</button>
           </div>
           <div className="todoBlock-forAllItems">
             <h4>Your todos:</h4>
             <div className="todoBlock-forItems">
               {
-                todos.length ? 
-                todos.map((todo) => (
-                  <TodoItem key={Math.random()} id={todo.id} title={todo.title} toggle={todo.toggle} />
-                )) :
-                <TodoEmpty />
+                todos.length ?
+                  todos.map((todo) => (
+                    <TodoItem key={Math.random()} id={todo.id} title={todo.title} toggle={todo.toggle} />
+                  )) :
+                  <TodoEmpty />
               }
             </div>
             <h4 className="another">Another user's todos:</h4>
             <div className="todoBlock-forOthersItems">
               {
-                isSuccess ? 
-                data.map((todo: any) => (
-                  <TodoItem key={Math.random()} id={todo.id} title={todo.title} toggle={todo.toggle} />
-                )) :
-                <TodoEmpty />
+                isSuccess ?
+                  data.map((todo: any) => (
+                    <TodoItem key={Math.random()} id={todo.id} title={todo.title} toggle={todo.toggle} />
+                  )) :
+                  <TodoEmpty />
               }
             </div>
           </div>

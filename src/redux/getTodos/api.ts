@@ -14,4 +14,4 @@ export const todosApi = createApi({
     })
 })
 
-export const {useGetTodosQuery, useRemoveTodoMutation} = todosApi;
+export const {useLazyGetTodosQuery, useRemoveTodoMutation} = todosApi;
