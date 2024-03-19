@@ -25,7 +25,7 @@ export const todoSlice = createSlice({
         toggle: false,
       };
 
-      state.todos.push(newTodo);
+      state.todos.push(newTodo)
     },
     toggleTodo(state, action) {
         const toggledTodo = state.todos.find((todo) => todo.id === action.payload.id);

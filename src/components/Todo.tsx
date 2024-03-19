@@ -11,7 +11,7 @@ function Todo() {
 
   const onClickAdd = (e: any) => {
     e.preventDefault();
-    value && dispatch(addTodo({ title: value }))
+    dispatch(addTodo({ title: value }))
   }
 
   return (
@@ -32,7 +32,7 @@ function Todo() {
               {
                 todos.length ? 
                 todos.map((todo) => (
-                  <TodoItem id={todo.id} title={todo.title} />
+                  <TodoItem key={Math.random()} id={todo.id} title={todo.title} toggle={todo.toggle} />
                 )) :
                 <TodoEmpty />
               }
