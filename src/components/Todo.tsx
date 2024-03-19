@@ -31,8 +31,8 @@ function Todo() {
             <div className="todoBlock-forItems">
               {
                 todos.length ? 
-                todos.map((todo, id) => (
-                  <TodoItem key={id} title={todo.title} />
+                todos.map((todo) => (
+                  <TodoItem id={todo.id} title={todo.title} />
                 )) :
                 <TodoEmpty />
               }
