@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../hooks"
 import TodoEmpty from "./TodoEmpty"
 import TodoItem from "./TodoItem"
 import { addTodo } from "../redux/setTodos/slice";
+import { useGetTodosQuery, useRemoveTodoMutation } from "../redux/getTodos/api";
 
 function Todo() {
   const dispatch = useAppDispatch();
@@ -13,6 +14,9 @@ function Todo() {
     e.preventDefault();
     dispatch(addTodo({ title: value }))
   }
+
+  const {data, isSuccess} = useGetTodosQuery("value");
+  const {} = useRemoveTodoMutation();
 
   return (
     <div className="container">
@@ -39,7 +43,13 @@ function Todo() {
             </div>
             <h4 className="another">Another user's todos:</h4>
             <div className="todoBlock-forOthersItems">
-              <TodoEmpty />
+              {
+                isSuccess ? 
+                data.map((todo: any) => (
+                  <TodoItem key={Math.random()} id={todo.id} title={todo.title} toggle={todo.toggle} />
+                )) :
+                <TodoEmpty />
+              }
             </div>
           </div>
         </div>
