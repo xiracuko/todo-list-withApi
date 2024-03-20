@@ -12,6 +12,17 @@
   justify-content: end;
   gap: 105px;
 
+  @media (max-width: 1111px) {
+    width: 720px;
+    height: 825px;
+    justify-content: start;
+  }
+
+  @media (max-width: 777px) {
+    height: 900px;
+    width: 300px;
+  }
+
   h2 {
     position: absolute;
     top: 55px;
@@ -35,6 +46,11 @@
 
     width: 85%;
     height: 405px;
+
+    @media (max-width: 1111px) {
+      gap: 75px;
+      margin-top: 180px;
+    }
   }
 
   .formBlock {
@@ -43,6 +59,16 @@
     gap: 10px;
 
     margin: 0 auto;
+
+    @media (max-width: 1111px) {
+      width: 600px;
+    }
+
+    @media (max-width: 777px) {
+      flex-direction: column;
+      align-items: flex-end;
+      width: 260px;
+    }
   }
 
   .errors {
@@ -58,6 +84,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
+
+    @media (max-width: 777px) {
+      width: 95%;
+    }
   }
 
   input {
@@ -72,6 +102,10 @@
 
     border: none;
     border-radius: 5px;
+
+    @media (max-width: 777px) {
+      width: 160px;
+    }
   }
 
   &-addBtn,
@@ -88,6 +122,11 @@
 
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+
+    @media (max-width: 777px) {
+      width: 78px;
+      height: 34px;
+    }
   }
 
   &-deleteAllBtn {
@@ -99,15 +138,41 @@
     display: flex;
     justify-content: space-between;
 
+    @media (max-width: 1111px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
     h4 {
       position: absolute;
       top: -35px;
 
       font-size: 20px;
+
+      @media (max-width: 1111px) {
+        border-bottom: 1px solid #2a2a2a;
+      }
+    }
+
+    .your {
+      @media (max-width: 777px) {
+        left: 4.2em;
+      }
     }
 
     .another {
       right: 12.2em;
+
+      @media (max-width: 1111px) {
+        right: auto;
+        top: 11.3em;
+      }
+    }
+  }
+
+  &-forItems {
+    @media (max-width: 1111px) {
+      min-height: 210px;
     }
   }
 
@@ -167,13 +232,25 @@
     text-align: center;
     margin-top: 65px;
 
+    @media (max-width: 1111px) {
+      margin-top: 35px;
+    }
+
     h5 {
       font-size: 30px;
+
+      @media (max-width: 777px) {
+        font-size: 20px;
+      }
     }
 
     p {
       color: lighten($color: #162956, $amount: 3%);
       font-weight: 900;
+
+      @media (max-width: 777px) {
+        font-size: 14px;
+      }
     }
   }
 }
@@ -235,6 +312,7 @@ label {
 
   background: #858585;
   border-radius: 5px;
+  margin-left: 10px;
 }
 
 .todoBlock-itemBtns--checkbox + label::before {

@@ -52,7 +52,7 @@ function Todo() {
             <button className="todoBlock-deleteAllBtn" onClick={onClickAllDelete}>DELETE</button>
           </div>
           <div className="todoBlock-forAllItems">
-            <h4>Your todos:</h4>
+            <h4 className="your">Your todos:</h4>
             <div className="todoBlock-forItems">
               {
                 todos.length ?
