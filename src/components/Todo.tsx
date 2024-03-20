@@ -3,24 +3,20 @@ import { useAppDispatch, useAppSelector } from "../hooks"
 import TodoEmpty from "./TodoEmpty"
 import TodoItem from "./TodoItem"
 import { addTodo } from "../redux/setTodos/slice";
-import { useLazyGetTodosQuery, useRemoveTodoMutation } from "../redux/getTodos/api";
+import { useLazyGetTodosQuery } from "../redux/getTodos/api";
 
 function Todo() {
   const dispatch = useAppDispatch();
   const { todos } = useAppSelector((state) => state.setTodo);
   const [value, setValue] = React.useState("");
+  const [getTodos, {data, isSuccess}] = useLazyGetTodosQuery();
 
   const onClickAdd = (e: any) => {
     e.preventDefault();
     dispatch(addTodo({ title: value }))
   }
 
-  const [trigger, {data, isSuccess}] = useLazyGetTodosQuery();
-  const { } = useRemoveTodoMutation();
-
-  const onClickData = () => {
-    trigger(value);
-  }
+  const onClickData = () => getTodos(value);
 
   return (
     <div className="container">

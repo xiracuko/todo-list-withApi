@@ -1,9 +1,24 @@
 {
-    "todos": [
-        {"id": "1", "title": "go to the shop."},
-        {"id": "2", "title": "buy products."},
-        {"id": "3", "title": "fulfill a promise to parents."},
-        {"id": "4", "title": "congratulate a friend on his birthday."},
-        {"id": "5", "title": "go to the hairdresser."}
-    ]
+  "todos": [
+  {
+    "id": "1",
+    "title": "go to the shop."
+  },
+  {
+    "id": "2",
+    "title": "buy products."
+  },
+  {
+    "id": "3",
+    "title": "fulfill a promise to parents."
+  },
+  {
+    "id": "4",
+    "title": "congratulate a friend on his birthday."
+  },
+  {
+    "id": "5",
+    "title": "go to the hairdresser."
+  }
+]
 }
