@@ -2,6 +2,7 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "../hooks"
 import TodoEmpty from "./TodoEmpty"
 import TodoItem from "./TodoItem"
+import TodoData from "./TodoData";
 import { addTodo } from "../redux/setTodos/slice";
 import { useLazyGetTodosQuery } from "../redux/getTodos/api";
 
@@ -46,7 +47,7 @@ function Todo() {
               {
                 isSuccess ?
                   data.map((todo: any) => (
-                    <TodoItem key={Math.random()} id={todo.id} title={todo.title} toggle={todo.toggle} />
+                    <TodoData key={Math.random()} title={todo.title} />
                   )) :
                   <TodoEmpty />
               }
