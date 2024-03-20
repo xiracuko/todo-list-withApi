@@ -1,9 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { newTodoType } from "../../types";
-
-type initialStateType = {
-  todos: newTodoType[];
-};
+import { initialStateType } from "../../types";
 
 export const initialState: initialStateType = {
   todos: [],
