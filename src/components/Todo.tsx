@@ -49,7 +49,7 @@ function Todo() {
               value={value}
               onChange={onChange} 
               />
-              {errors?.todo && <p>Please enter task!</p>}
+              {errors?.todo && <p className="errors">Please enter task!</p>}
               <button className="todoBlock-addBtn">+ add</button>
             </form>
             <button className="todoBlock-addBtnData" onClick={onClickData}>getData</button>

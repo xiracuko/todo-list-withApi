@@ -38,10 +38,17 @@
   }
 
   .formBlock {
+    position: relative;
     display: flex;
     gap: 10px;
 
     margin: 0 auto;
+  }
+
+  .errors {
+    position: absolute;
+    top: 38px;
+    color: #a11b04;
   }
 
   form {
