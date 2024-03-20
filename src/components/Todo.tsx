@@ -5,17 +5,19 @@ import TodoItem from "./TodoItem"
 import TodoData from "./TodoData";
 import { addTodo, deleteTodos } from "../redux/setTodos/slice";
 import { useLazyGetTodosQuery, todosApi } from "../redux/getTodos/api";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 function Todo() {
   const dispatch = useAppDispatch();
   const { todos } = useAppSelector((state) => state.setTodo);
   const [value, setValue] = React.useState("");
   const [getTodos, {data, isSuccess}] = useLazyGetTodosQuery();
+  const {register, handleSubmit, formState: {errors}} = useForm();
 
-  const onClickAdd = (e: any) => {
-    e.preventDefault();
-    dispatch(addTodo({ title: value }))
-  }
+  // const onClickAdd = (e: any) => {
+  //   e.preventDefault();
+  //   dispatch(addTodo({ title: value }))
+  // }
 
   const onClickData = () => getTodos(value);
 
@@ -25,14 +27,29 @@ function Todo() {
     && dispatch(deleteTodos());
   }
 
+  const onClickAdd: SubmitHandler<FieldValues> = () => {
+    setValue("")
+    dispatch(addTodo({ title: value }));
+  }
+
+  const onChange = (e: any) => setValue(e.target.value);
+
   return (
     <div className="container">
       <div className="todoBlock">
         <h2>Todo list<p>.</p></h2>
         <div className="todoBlock-info">
           <div className="formBlock">
-            <form onSubmit={onClickAdd}>
-              <input type="text" value={value} onChange={(event) => setValue(event.target.value)} />
+            <form onSubmit={handleSubmit(onClickAdd)}>
+              <input 
+              type="text" 
+              autoComplete='off'
+              spellCheck={false}
+              {...register('todo', { required: true })}
+              value={value}
+              onChange={onChange} 
+              />
+              {errors?.todo && <p>Please enter task!</p>}
               <button className="todoBlock-addBtn">+ add</button>
             </form>
             <button className="todoBlock-addBtnData" onClick={onClickData}>getData</button>
