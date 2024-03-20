@@ -1,11 +1,6 @@
 import { useAppDispatch } from "../hooks"
 import { removeTodo, toggleTodo } from "../redux/setTodos/slice";
-
-interface ITodoItemProps {
-  id: number,
-  title: string,
-  toggle: boolean
-}
+import { ITodoItemProps } from "../types";
 
 const TodoItem: React.FC<ITodoItemProps> = ({ id, title, toggle }) => {
   const dispatch = useAppDispatch();

@@ -7,3 +7,9 @@ export type newTodoType = {
 export interface ITodoDataProps {
   title: string;
 }
+
+export interface ITodoItemProps {
+  id: number;
+  title: string;
+  toggle: boolean;
+}
