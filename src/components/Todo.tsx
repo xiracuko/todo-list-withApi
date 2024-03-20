@@ -66,7 +66,7 @@ function Todo() {
             <div className="todoBlock-forOthersItems">
               {
                 isSuccess ?
-                  data.map((todo: newTodoType) => (
+                  data!.map((todo: newTodoType) => (
                     <TodoData key={Math.random()} title={todo.title} />
                   )) :
                   <TodoEmpty />
