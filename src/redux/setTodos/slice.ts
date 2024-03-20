@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { initialStateType } from "../../types";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { initialStateType, TodoRemoveType, TodoTitleType, TodoToggleType } from "../../types";
 
 export const initialState: initialStateType = {
   todos: [],
@@ -9,7 +9,7 @@ export const todoSlice = createSlice({
   name: "todo",
   initialState,
   reducers: {
-    addTodo(state, action) {
+    addTodo(state, action: PayloadAction<TodoTitleType>) {
       const newTodo = {
         id: Date.now(),
         title: action.payload.title,
@@ -18,11 +18,11 @@ export const todoSlice = createSlice({
 
       state.todos.push(newTodo)
     },
-    toggleTodo(state, action) {
+    toggleTodo(state, action: PayloadAction<TodoToggleType>) {
         const toggledTodo = state.todos.find((todo) => todo.id === action.payload.id);
         toggledTodo ? toggledTodo.toggle = !toggledTodo.toggle : "";
     },
-    removeTodo(state, action) {
+    removeTodo(state, action: PayloadAction<TodoRemoveType>) {
         state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);
     },
     deleteTodos(state) {

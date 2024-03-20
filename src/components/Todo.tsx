@@ -6,7 +6,7 @@ import TodoData from "./TodoData";
 import { addTodo, deleteTodos } from "../redux/setTodos/slice";
 import { useLazyGetTodosQuery, todosApi } from "../redux/getTodos/api";
 import { FieldValues, useForm } from "react-hook-form";
-import { newTodoType } from "../types";
+import { NewTodoType } from "../types";
 
 function Todo() {
   const dispatch = useAppDispatch();
@@ -66,7 +66,7 @@ function Todo() {
             <div className="todoBlock-forOthersItems">
               {
                 isSuccess ?
-                  data!.map((todo: newTodoType) => (
+                  data!.map((todo: NewTodoType) => (
                     <TodoData key={Math.random()} title={todo.title} />
                   )) :
                   <TodoEmpty />
