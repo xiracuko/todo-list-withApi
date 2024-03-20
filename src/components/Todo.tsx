@@ -20,9 +20,9 @@ function Todo() {
   const onClickData = () => getTodos(value);
 
   const onClickAllDelete = () => {
-    window.confirm("Do you really want to do a full clean?") && 
-    dispatch(todosApi.util.resetApiState()); 
-    dispatch(deleteTodos());
+    window.confirm("Do you really want to do a full clean?") 
+    && dispatch(todosApi.util.resetApiState()) 
+    && dispatch(deleteTodos());
   }
 
   return (
@@ -36,8 +36,8 @@ function Todo() {
               <button className="todoBlock-addBtn">+ add</button>
             </form>
             <button className="todoBlock-addBtnData" onClick={onClickData}>getData</button>
+            <button className="todoBlock-deleteAllBtn" onClick={onClickAllDelete}>DELETE</button>
           </div>
-          <button onClick={onClickAllDelete}>DELETE</button>
           <div className="todoBlock-forAllItems">
             <h4>Your todos:</h4>
             <div className="todoBlock-forItems">

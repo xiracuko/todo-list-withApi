@@ -68,7 +68,8 @@
   }
 
   &-addBtn,
-  &-addBtnData {
+  &-addBtnData,
+  &-deleteAllBtn {
     background: #162956;
     color: white;
 
@@ -80,6 +81,10 @@
 
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+  }
+
+  &-deleteAllBtn {
+    background: #561616 !important;
   }
 
   &-forAllItems {
@@ -173,6 +178,7 @@ input:focus {
 // hover
 .todoBlock-addBtn:hover,
 .todoBlock-addBtnData:hover,
+.todoBlock-deleteAllBtn,
 .todoBlock-itemBtns--removeBtn:hover {
   transition: all 0.3s ease-in-out;
 }
@@ -182,8 +188,9 @@ input:focus {
   background-color: darken($color: #162956, $amount: 3%);
 }
 
+.todoBlock-deleteAllBtn:hover,
 .todoBlock-itemBtns--removeBtn:hover {
-  background-color: darken($color: #561616, $amount: 3%);
+  background-color: darken($color: #561616, $amount: 3%) !important;
 }
 
 .todoBlock-itemBtns--checkbox:not(:disabled):not(:checked)
