@@ -3,8 +3,8 @@ import { useAppDispatch, useAppSelector } from "../hooks"
 import TodoEmpty from "./TodoEmpty"
 import TodoItem from "./TodoItem"
 import TodoData from "./TodoData";
-import { addTodo } from "../redux/setTodos/slice";
-import { useLazyGetTodosQuery } from "../redux/getTodos/api";
+import { addTodo, deleteTodos } from "../redux/setTodos/slice";
+import { useLazyGetTodosQuery, todosApi } from "../redux/getTodos/api";
 
 function Todo() {
   const dispatch = useAppDispatch();
@@ -19,6 +19,12 @@ function Todo() {
 
   const onClickData = () => getTodos(value);
 
+  const onClickAllDelete = () => {
+    window.confirm("Do you really want to do a full clean?") && 
+    dispatch(todosApi.util.resetApiState()); 
+    dispatch(deleteTodos());
+  }
+
   return (
     <div className="container">
       <div className="todoBlock">
@@ -31,6 +37,7 @@ function Todo() {
             </form>
             <button className="todoBlock-addBtnData" onClick={onClickData}>getData</button>
           </div>
+          <button onClick={onClickAllDelete}>DELETE</button>
           <div className="todoBlock-forAllItems">
             <h4>Your todos:</h4>
             <div className="todoBlock-forItems">
