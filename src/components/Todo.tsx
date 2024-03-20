@@ -1,23 +1,19 @@
-import React from "react";
+import React, { ChangeEventHandler } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks"
 import TodoEmpty from "./TodoEmpty"
 import TodoItem from "./TodoItem"
 import TodoData from "./TodoData";
 import { addTodo, deleteTodos } from "../redux/setTodos/slice";
 import { useLazyGetTodosQuery, todosApi } from "../redux/getTodos/api";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
+import { newTodoType } from "../types";
 
 function Todo() {
   const dispatch = useAppDispatch();
   const { todos } = useAppSelector((state) => state.setTodo);
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = React.useState<string>("");
   const [getTodos, {data, isSuccess}] = useLazyGetTodosQuery();
-  const {register, handleSubmit, formState: {errors}} = useForm();
-
-  // const onClickAdd = (e: any) => {
-  //   e.preventDefault();
-  //   dispatch(addTodo({ title: value }))
-  // }
+  const {register, handleSubmit, formState: {errors}} = useForm<FieldValues>();
 
   const onClickData = () => getTodos(value);
 
@@ -27,12 +23,12 @@ function Todo() {
     && dispatch(deleteTodos());
   }
 
-  const onClickAdd: SubmitHandler<FieldValues> = () => {
+  const onClickAdd = () => {
     setValue("")
     dispatch(addTodo({ title: value }));
   }
 
-  const onChange = (e: any) => setValue(e.target.value);
+  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => setValue(e.target.value);
 
   return (
     <div className="container">
@@ -70,7 +66,7 @@ function Todo() {
             <div className="todoBlock-forOthersItems">
               {
                 isSuccess ?
-                  data.map((todo: any) => (
+                  data.map((todo: newTodoType) => (
                     <TodoData key={Math.random()} title={todo.title} />
                   )) :
                   <TodoEmpty />
