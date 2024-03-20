@@ -3,3 +3,7 @@ export type newTodoType = {
   title: string;
   toggle: boolean;
 };
+
+export interface ITodoDataProps {
+  title: string;
+}

@@ -1,6 +1,4 @@
-interface ITodoDataProps {
-  title: string
-}
+import { ITodoDataProps } from "../types"
 
 const TodoItem: React.FC<ITodoDataProps> = ({ title }) => {
 
