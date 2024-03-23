@@ -1,7 +1,7 @@
 # TodoList
 
 A regular Todo List with a request to the API and using several libraries:
-
+- React
 - React Hook Form
 - Redux Toolkit + RTK Query
 - JSON server + concurrently
